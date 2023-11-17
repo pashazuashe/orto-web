@@ -40,25 +40,6 @@ class Answer
 	}
 }
 
-//Класс, представляющий результат
-class Result 
-{
-	constructor(text, value)
-	{
-		this.text = text;
-		this.value = value;
-	}
-}
-
-//Массив с результатами
-const results = 
-[
-	new Result("Вам многому нужно научиться", 0),
-	new Result("Вы уже неплохо разбираетесь", 2),
-	new Result("Ваш уровень выше среднего", 4),
-	new Result("Вы в совершенстве знаете тему", 6)
-];
-
 var questions = [];
 
 questions[0] = {
@@ -222,24 +203,303 @@ questions[23] = {
 	])
 }
 questions[24] = {
-	q: new Question(" Cужение верхнего и нижнего зубного ряда", 24, false, true,
+	q: new Question("Cужение верхнего и нижнего зубного ряда", 24, false, true,
 	[
 		new Answer("небный расширтель на верхнюю челюсть, работа с остеопатом, оценка потенциала роста по данным ТРГ в боковой проекции", -1)
 	])
 }
-
 questions[25] = {
-	q: new Question(" Результат", 25, false, true,
+	q: new Question("Результат", 25, false, true,
 	[
 		new Answer("наклон боковых зубов лингвально/небно, скученность в переднем участке - одночелюстной аппарат на обе челюсти", -1)
 	])
 }
+questions[26] = {
+	q: new Question("Результат", 26, false, true,
+	[
+		new Answer("Pетузия верхних резцов - конструкция аппарта с толкателем для передней группы зубов", -1)
+	])
+}
+questions[27] = {
+	q: new Question("Результат", 2, false, true,
+	[
+		new Answer("Oткрытый рот, нарушения функции - аппарат Френкеля, активатор Андрезена Гойпля", -1)
+	])
+}
+questions[28] = {
+	q: new Question("Результат", 28, false, true,
+	[
+		new Answer("незначительная скученность зубных рядов , носовое дыхание - эластопозиционер", -1)
+	])
+}
+questions[29] = {
+	q: new Question("Cужение верхнего и нижнего зубного ряда", 29, false, true,
+	[
+		new Answer("Pукообразный захватв съемном аппарате;частичная брекет-система", -1)
+	])
+}
+questions[30] = {
+	q: new Question("Результат", 30, false, true,
+	[
+		new Answer("Губной бампер;частичная брекет-система", -1)
+	])
+}/////////////////////////////////////////////////////////////////////
+questions[31] = {
+	q: new Question("Кооперация", 31, true, false,
+	[
+		new Answer("Контактен, открывает рот", 32),
+		new Answer("Неконтактен, боится", 33),
+		new Answer("Контактен, повышеный рвотный рефлекс", 34)
+	])
+}
+questions[32] = {
+	q: new Question("Контактен, открывает рот", 32, false, false,
+	[
+		new Answer("Тест Люшера, рисунок , понимание личной мотивации ребенка", 35)
+	])
+}
+questions[33] = {
+	q: new Question("Неконтактен, боится", 33, false, false,
+	[
+		new Answer("Рисунок ДЕРЕВО СЕМЬЯ ЧЕЛОВЕК", 36)
+	])
+}
+questions[34] = {
+	q: new Question("Контактен, повышеный рвотный рефлекс", 34, false, false,
+	[
+		new Answer("дать слепочную ложку для тренировки дома (даже в случае сканирования)", 37)
+	])
+}
+questions[35] = {
+	q: new Question("Тест Люшера, рисунок , понимание личной мотивации ребенка", 35, false, false,
+	[
+		new Answer("Есть личная заинтересованность", 38),
+		new Answer("Нет личной мотивации", 39)
+	])
+}
+questions[36] = {
+	q: new Question("Результат", 36, false, true,
+	[
+		new Answer("Рисунок ДЕРЕВО СЕМЬЯ ЧЕЛОВЕК", )
+	])
+}
+questions[37] = {
+	q: new Question("дать слепочную ложку для тренировки дома (даже в случае сканирования)", 37, false, false,
+	[
+		new Answer("'Перевод' в группу контактен", 40),
+		new Answer("Консультация остеопата", 41),
+		new Answer("Примерка слепочной ложки", 42)
+	])
+}
+questions[38] = {
+	q: new Question("Есть личная заинтересованность", 38, false, false,
+	[
+		new Answer("Возможно использование съемной аппаратуры", 43)
+	])
+}
+questions[39] = {
+	q: new Question("Нет личной мотивации", 39, false, false,
+	[
+		new Answer("несъемная техника +курс профессионального ухода за полостью рта, решение о необходимости эндогенной профилактики", 44)
+	])
+}
+questions[40] = {
+	q: new Question("Результат", 40, false, true,
+	[
+		new Answer("'Перевод' в группу контактен", -1)
+	])
+}
+questions[41] = {
+	q: new Question("", 41, false, true,
+	[
+		new Answer("Консультация остеопата", -1),
+		new Answer("", )
+	])
+}
+questions[42] = {
+	q: new Question("Примерка слепочной ложки", 42, false, false,
+	[
+		new Answer("Минимизировани рвотный рефлекс", 45),
+		new Answer("Сохраняется рвотный рефлекс", 46)
+	])
+}
+questions[43] = {
+	q: new Question("Результат", 43, false, true,
+	[
+		new Answer("возможно использование съемной аппаратуры", -1)
+	])
+}
+questions[44] = {
+	q: new Question("Результат", 44, false, true,
+	[
+		new Answer("несъемная техника +курс профессионального ухода за полостью рта, решение о необходимости эндогенной профилактики", -1)
+	])
+}
+questions[45] = {
+	q: new Question("Минимизирован рвотный рефлекс", 45, false, false,
+	[
+		new Answer("Изготовление съемного аппарата", 47)
+	])
+}
+questions[46] = {
+	q: new Question("Сохраняется рвотный рефлекс", 46, false, false,
+	[
+		new Answer("Выбор несъемной конструкции с минимальным прилеганием к небу", 48),
+		new Answer("Отсрочка ортодонтического лечения, работа с остеопатом", 49)
+	])
+}
+questions[47] = {
+	q: new Question("Результат", 47, false, true,
+	[
+		new Answer("Изготовление съемного аппарата", -1)
+	])
+}
+questions[48] = {
+	q: new Question("Результат", 48, false, true,
+	[
+		new Answer("Выбор несъемной конструкции с минимальным прилеганием к небу", -1)
+	])
+}
+questions[49] = {
+	q: new Question("Результат", 49, false, true,
+	[
+		new Answer("Отсрочка ортодонтического лечения, работа с остеопатом", -1)
+	])
+}/////////////////////////////////////////////////////////////////////////////
+questions[50] = {
+	q: new Question("Пациент с дистальной окклюзией", 50, true, false,
+	[
+		new Answer("Клинический осмотр/консультация", 51)
+	])
+}
+questions[51] = {
+	q: new Question("Клинический осмотр/консультация", 51, false, false,
+	[
+		new Answer("Данные диагностических моделей челюстей", 52),
+		new Answer("Данные телерентгенограммы", 53),
+		new Answer("Данные ортопантомограммы/компьютерной томографии", 54),
+		new Answer("Кооперация/сотрудничество", 55)
+	])
+}
+questions[52] = {
+	q: new Question("Результат", 52, false, true,
+	[
+		new Answer("Данные диагностических моделей челюстей", -1)
+	])
+}
+questions[53] = {
+	q: new Question("Результат", 53, false, true,
+	[
+		new Answer("Данные телерентгенограммы", -1)
+	])
+}
+questions[54] = {
+	q: new Question("Результат", 54, false, true,
+	[
+		new Answer("Данные ортопантомограммы/компьютерной томографии", -1)
+	])
+}
+questions[55] = {
+	q: new Question("Результат", 55, false, true,
+	[
+		new Answer("Кооперация/сотрудничество", -1)
+	])
+}
+questions[56] = {
+	q: new Question("Клинический осмотр", 56, false, true,
+	[
+		new Answer("Асимметрия лица", 57),
+		new Answer("Анамнез соматических заболеваний: заболевания ЛОР-органов/аллергический ринит/заболевания нервной системы/сколиоз", 58),
+		new Answer("Вредные привычки", 59)
+	])
+}
+questions[57] = {
+	q: new Question("Асимметрия лица", 57, false, false,
+	[
+		new Answer("Трг в прямой проекции/КЛКТ/анализ лица в фас: дифференциальная диагностика скелетной и функциональной асимметрии ", 60)
+	])
+}
+questions[58] = {
+	q: new Question("Анамнез соматических заболеваний: заболевания ЛОР-органов/аллергический ринит/заболевания нервной системы/сколиоз", 58, false, false,
+	[
+		new Answer("Снимок для визуализации  гайморовых пазух/шейного отдела позвоночника/оценка аденоидной ткани", 61)
+	])
+}
+questions[59] = {
+	q: new Question("Вредные привычки", 59, false, false,
+	[
+		new Answer("Cамоконтроль/психолог/невролог", 62)
+	])
+}
+questions[60] = {
+	q: new Question("Результат", 60, false, true,
+	[
+		new Answer("Трг в прямой проекции/КЛКТ/анализ лица в фас: дифференциальная диагностика скелетной и функциональной асимметрии", -1)
+	])
+}
+questions[61] = {
+	q: new Question("Снимок для визуализации  гайморовых пазух/шейного отдела позвоночника/оценка аденоидной ткани", 61, false, false,
+	[
+		new Answer("Cопровождение у специалистов – ЛОР-врач, остеопат, ортопед, аллерголог", 63)
+	])
+}
+questions[62] = {
+	q: new Question("Результат", 62, false, true,
+	[
+		new Answer("самоконтроль/психолог/невролог", -1)
+	])
+}
+questions[63] = {
+	q: new Question("Результат", 63, false, true,
+	[
+		new Answer("Cопровождение у специалистов – ЛОР-врач, остеопат, ортопед, аллерголог", -1)
+	])
+}
 	
-
 //Сам тест
-const quiz = new Quiz(questions, 0);
+quiz = new Quiz(questions, 0);
+ChangeTree(1);
 
-Update();
+// Update();
+
+function ChangeTree(value){
+	let btns = document.getElementsByClassName("buttonTree");
+	console.log(btns);
+
+	// Делаем кнопки серыми
+	for(let i = 0; i < btns.length; i++)
+	{
+		btns[i].className = "buttonTree button_passive";
+	}
+	btns[value -1].className = "buttonTree button_correct";
+	switch (value) {
+		case 1:{
+			quiz.current = 50;
+			Update();
+			break;
+		}
+		case 2:{
+			quiz.current = 56;
+			Update();
+
+			break;
+		}
+		case 3:{
+			quiz.current = 31;
+			Update();
+
+			break;
+		}
+		case 4:{
+			quiz.current = 0;
+			Update();
+
+			break;
+		}
+		default:
+			break;
+	}
+}
 
 
 //Обновление теста
@@ -265,6 +525,18 @@ function Update()
 
 		buttonsElem.appendChild(btn);
 	}
+	console.log(quiz.current);
+	let btn = document.createElement("button");
+		btn.className = "buttonSkip";
+
+		btn.innerHTML = "Пропустить";
+
+		btn.setAttribute("index", Number(quiz.current) + (1));
+		btn.setAttribute("id", Number(quiz.current) + (1));
+		console.log(Number(Number(quiz.current) + Number(1)));
+		
+
+		buttonsElem.appendChild(btn);
 	
 	//Выводим номер текущего вопроса
 	pagesElem.innerHTML = "";
@@ -285,6 +557,8 @@ function Init()
 		//При нажатии на кнопку будет вызываться функция Click()
 		btns[i].addEventListener("click", function (e) { Click(e.target.getAttribute("index")); });
 	}
+	let tbtn = document.getElementsByClassName("buttonSkip");
+	tbtn[0].addEventListener("click", function (e) { Click(e.target.getAttribute("index")); });
 }
 
 function Click(index) 
