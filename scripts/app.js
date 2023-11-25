@@ -402,7 +402,7 @@ questions[51] = {
 	q: new Question("Клинический осмотр/консультация", 51, false, false,
 	[
 		new Answer("Данные диагностических моделей челюстей", 52),
-		new Answer("Данные телерентгенограммы", 53),
+		//new Answer("Данные телерентгенограммы", 53),
 		new Answer("Данные ортопантомограммы/компьютерной томографии", 54),
 		new Answer("Кооперация/сотрудничество", 55)
 	])
@@ -580,7 +580,7 @@ var answers = []
 	
 //Сам тест
 quiz = new Quiz(questions, 0);
-ChangeTree(1);
+ChangeTree(3);
 
 // Update();
 
@@ -597,7 +597,7 @@ function ChangeTree(value){
 		btns[value -1].className = "buttonTree button_correct";
 	}
 	switch (value) {
-		case 1:{
+		case 0:{
 			quiz.current = 50;
 			Update();
 			break;
@@ -665,7 +665,7 @@ function Update()
 		answers.push(quiz.current);
 		let btn = document.getElementById("-1");
 		btn.className = "button button_correct";
-		percents += 20;
+		percents += 33.33;
 	} else {
 		let btn = document.createElement("button");
 		btn.className = "buttonSkip";
@@ -682,7 +682,7 @@ function Update()
 
 	//Выводим номер текущего вопроса
 	pagesElem.innerHTML = "";
-	pagesElem.innerHTML = percents + "%";
+	pagesElem.innerHTML = Math.ceil(percents) + "%";
 	//Вызываем функцию, которая прикрепит события к новым кнопкам
 	Init();
 }
@@ -753,7 +753,7 @@ function Summary()
 
 	//Удаляем старые варианты ответов
 	buttonsElem.innerHTML = "";
-	pagesElem.innerHTML = percents + "%";
+	pagesElem.innerHTML = Math.ceil(percents) + "%";
 }
 
 
