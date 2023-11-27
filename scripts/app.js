@@ -672,8 +672,19 @@ function Update()
 
 		btn.innerHTML = "Пропустить";
 
-		btn.setAttribute("index", Number(quiz.current) + (1));
-		btn.setAttribute("id", Number(quiz.current) + (1));
+		if (quiz.current >= 31 && quiz.current <= 49){
+			btn.setAttribute("index", Number(0));
+			btn.setAttribute("id", Number(0));
+		} else if (quiz.current >= 0 && quiz.current <= 30){
+			btn.setAttribute("index", Number(64));
+			btn.setAttribute("id", Number(64));
+		} else if (quiz.current >= 64 && quiz.current <= 76){
+			btn.setAttribute("index", Number(999));
+			btn.setAttribute("id", Number(999));
+		}
+
+		// btn.setAttribute("index", Number(999));
+		// btn.setAttribute("id", Number(999));
 		// console.log(Number(Number(quiz.current) + Number(1)));
 		
 
@@ -705,6 +716,11 @@ function Init()
 
 function Click(index) 
 {
+	console.log(index);
+	if (index == 888){
+		ChangeTree(3);
+		return;
+	}
 	//Получаем номер правильного ответа
 	// let correct = quiz.Click(index);
 
@@ -736,6 +752,22 @@ function Click(index)
 function Summary()
 {
 	// console.log(answers);
+	console.log(answers.length)
+	if (answers.length == 0){
+		headElem.innerHTML = "Тест не пройден";
+		buttonsElem.innerHTML = "";
+		let btn = document.createElement("button");
+		btn.className = "button";
+
+		btn.innerHTML ="Начать сначала";
+
+		btn.setAttribute("index", 888);
+		btn.setAttribute("id", 888);
+		buttonsElem.appendChild(btn);
+		Init();
+		return;
+	}
+
 	str= "";
 	for (i = answers.length - 1; i >= 0 ; i--){
 		newDiv = document.createElement("div");
