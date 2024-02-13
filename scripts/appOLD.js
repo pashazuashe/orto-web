@@ -78,11 +78,10 @@ questions[3] = {
 	])
 }
 questions[4] = {
-	q: new Question("", 4, 5, false, true,//Результат
+	q: new Question("Результат", 4, 5, false, true,
 	[
-		new Answer("", -1),
-		//new Answer("Сужение нижнего зубного ряда, верхний зр в норме", -1),
-		new Answer("", 64)//Следующий тест
+		new Answer("Сужение нижнего зубного ряда, верхний зр в норме", -1),
+		new Answer("Следующий тест", 64)
 	])
 }
 questions[5] = {
@@ -192,7 +191,7 @@ questions[19] = {
 questions[20] = {
 	q: new Question("Результат", 20, 9, false, true,
 	[
-		new Answer("Удержание мест, динамическое наблюдение", -1),
+		new Answer("Ротация моляров: аппарат для деротации моляров", -1),
 		new Answer("Следующий тест", 64)
 	])
 }
@@ -635,6 +634,7 @@ function ChangeTree(value){
 	}
 }
 
+
 //Обновление теста
 function Update()
 {
@@ -643,11 +643,10 @@ function Update()
 	headElem.innerHTML = quiz.questions[quiz.current].q.text;
 	// console.log(quiz.questions[0].q.answers.length);
 
-	//Удаляем старые варианты 
+	//Удаляем старые варианты ответов
 	buttonsElem.innerHTML = "";
 
-	//Создаём кнопки для новых вариантов 
-
+	//Создаём кнопки для новых вариантов ответов
 	for(let i = 0; i < quiz.questions[quiz.current].q.answers.length; i++)
 	{
 		let btn = document.createElement("button");
@@ -668,16 +667,16 @@ function Update()
 		let btn = document.createElement("button");
 		btn.className = "button";
 		btn.innerHTML = "Предыдущий вопрос";
-		btn.setAttribute("index", Number(Number(quiz.current) - 1));
-		btn.setAttribute("id", Number(Number(quiz.current) - 1));
+		btn.setAttribute("index", Number(quiz.current - 1));
+		btn.setAttribute("id", Number(quiz.current - 1));
 		buttonsElem.appendChild(btn);
 
 		if (quiz.current > 0 && quiz.current <= 30){
 			let btn = document.createElement("button");
-			btn.className = "button skip";
+			btn.className = "button";
 			btn.innerHTML = "Следующий вопрос";
-			btn.setAttribute("index", Number(Number(quiz.current) + 1));
-			btn.setAttribute("id", Number(Number(quiz.current) + 1));
+			btn.setAttribute("index", Number(quiz.current + 1));
+			btn.setAttribute("id", Number(quiz.current + 1));
 			buttonsElem.appendChild(btn);
 		}
 	}
@@ -686,29 +685,24 @@ function Update()
 		if (quiz.current >= 0 && quiz.current <= 30){
 			answers2.push(quiz.current);
 		} else {
-			//console.log(quiz.current);
 			answers.push(quiz.current);
 			let btn = document.getElementById("-1");
 			btn.className = "button button_correct";
 			btn.setAttribute("style", "display: none;");
 			headElem.innerHTML = "Результат: "  + quiz.questions[quiz.current].q.answers[0].text;
-			percents += 33.33;
 		}
 		
 		
 		if (quiz.current >= 31 && quiz.current <= 49){
 			setTimeout(Click(0), 1000);
 		} else if (quiz.current >= 0 && quiz.current <= 30){
-			/////console.log("след вопрос  " + quiz.questions[quiz.current].q.parentQuestion);
-			if (quiz.questions[quiz.current].q.parentQuestion == 64){				
-			percents += 33.33;
-			document.getElementById("skip").remove();
-			}
+			console.log("след вопрос  " + quiz.questions[quiz.current].q.parentQuestion);
 			setTimeout(Click(quiz.questions[quiz.current].q.parentQuestion), 1000);
 		} else if (quiz.current >= 64 && quiz.current <= 76){
-			/////console.log("КОнец");
+			console.log("КОнец");
 			setTimeout(Click(999), 1000);
 		}
+		percents += 33.33;
 	} else {
 		let btn = document.createElement("button");
 		btn.className = "button";
@@ -754,14 +748,12 @@ function Init()
 		btns[i].addEventListener("click", function (e) { Click(e.target.getAttribute("index")); });
 	}
 	let tbtn = document.getElementsByClassName("button");
-	if (tbtn == null){
-		tbtn[0].addEventListener("click", function (e) { Click(e.target.getAttribute("index")); });
-	}
+	tbtn[0].addEventListener("click", function (e) { Click(e.target.getAttribute("index")); });
 }
 
 function Click(index) 
 {
-	/////console.log(index);
+	console.log(index);
 	if (index == 888){
 		ChangeTree(3);
 		return;
@@ -800,8 +792,8 @@ function Click(index)
 function Summary()
 {
 	// console.log(answers);
-	//////console.log("количество ответов " + answers.length);
-	//////console.log(answers2);
+	console.log("количество ответов " + answers.length);
+	console.log(answers2);
 	if (answers.length == 0){
 		headElem.innerHTML = "Тест не пройден";
 		buttonsElem.innerHTML = "";
@@ -819,41 +811,26 @@ function Summary()
 
 	str= "";
 	//for (i = answers.length - 1; i >= 0 ; i--){
-	/////console.log("количество ответов " + answers.length);
+	console.log("количество ответов " + answers.length);
 	headElem.innerHTML = "";
-	for (i = answers.length - 1; i >= 0; i--){
+	for (i = 0; i < answers.length; i++){
 		newDiv = document.createElement("div");
-		newDiv.setAttribute("id", "result" + i);
-		newDiv.setAttribute("class", "temp result");
 		newContent = document.createTextNode(Number(i + 1) + "-й тест: " + questions[answers[i]].q.answers[0].text);
 		newDiv.appendChild(newContent);
 
 		headElem.insertAdjacentElement("afterend",newDiv);
-		/////console.log(i);
+		console.log(i);
 	}
 
-
-	console.log(answers);
 	
-	newDiv = document.createElement("div");
-	newDiv.setAttribute("id", "answer");
-	newDiv.setAttribute("class", "temp");
-	newContent = document.createTextNode("Зубные ряды: ");
-	newDiv.appendChild(newContent);
 
-	document.getElementById("result1").insertAdjacentElement("afterend",newDiv);
-	target = document.getElementById("answer");
+	// for (i = answers2.length - 1; i >= 0 ; i--){
+	// 	newDiv = document.createElement("div");
+	// 	newContent = document.createTextNode("Зубные ряды: " + questions[answers2[i]].q.answers[0].text);
+	// 	newDiv.appendChild(newContent);
 
-	for (i = answers2.length - 1; i >= 0 ; i--){
-		newDiv = document.createElement("div");
-		newDiv.setAttribute("class", "temp result");
-		newContent = document.createTextNode(questions[answers2[i]].q.answers[0].text);
-		newDiv.appendChild(newContent);
-
-		target.insertAdjacentElement("afterend",newDiv);
-
-		console.log(document.createTextNode("Зубные ряды: " + questions[answers2[i]].q.answers[0].text));
-	}
+	// 	headElem.insertAdjacentElement("afterend",newDiv);
+	// }
 
 
 	//Если есть, меняем вопрос в заголовке
@@ -865,19 +842,6 @@ function Summary()
 	pagesElem.innerHTML = Math.ceil(percents) + "%";
 }
 
-function Reset(){
-	answers = [];
-	answers2 = [];
-	percents = 0;
-	const boxes = Array.from(document.getElementsByClassName('temp'));
-
-	boxes.forEach(box => {
-  		box.remove();
-	});
-	// document.appendChild(headElem);
-	quiz.current = 0;
-	ChangeTree(3);
-}
 
 
 
